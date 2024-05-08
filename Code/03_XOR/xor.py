@@ -39,3 +39,11 @@ while True:
         led_pin.on()
     else:
         led_pin.off()
+
+
+
+
+# array([[0.00476582],
+#        [0.9909986 ],
+#        [0.98864555],
+#        [0.01473192]], dtype=float32)
