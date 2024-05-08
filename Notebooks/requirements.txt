@@ -1,0 +1,6 @@
+jupyter
+tensorflow==2.16.1
+tf-keras>=2.16.0,<2.17.0
+tensorflow_datasets
+seaborn
+matplotlib
