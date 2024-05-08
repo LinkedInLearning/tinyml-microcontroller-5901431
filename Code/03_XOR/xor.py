@@ -3,8 +3,8 @@ from machine import Pin   # type: ignore
 import io
 
 # Define pins for buttons and LED
-button_pin1 = Pin(16, Pin.IN, Pin.PULL_DOWN)
-button_pin2 = Pin(17, Pin.IN, Pin.PULL_DOWN)
+button_pin1 = Pin(17, Pin.IN, Pin.PULL_DOWN)
+button_pin2 = Pin(16, Pin.IN, Pin.PULL_DOWN)
 led_pin = Pin(25, Pin.OUT)
 
 # Load the XOR model
