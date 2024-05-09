@@ -372,4 +372,4 @@ for i in range(10):
     #     print_output = True
 
     interpreter.invoke()
-    print(f"image {i} is {predicted_number} ({predict_value:.2f}%) {'' if predicted_number == i else 'X'}")
+    print(f"image {i} is {predicted_number} ({predict_value * 100:.2f}%) {'' if predicted_number == i else 'X'}")
