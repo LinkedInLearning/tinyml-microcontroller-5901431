@@ -367,9 +367,9 @@ for i in range(10):
     test_image = test_dataset[i]
     predicted_number = -1
     print_output = False
-    if i == 1:
-        print()
-        print_output = True
+    # if i == 1:
+    #     print()
+    #     print_output = True
 
     interpreter.invoke()
     print(f"image {i} is {predicted_number} ({predict_value:.2f}%) {'' if predicted_number == i else 'X'}")
