@@ -29,13 +29,10 @@ window_size = const (kFeatureSliceDurationMs * kAudioOneMsSize)
 class Slice:
 
     def __init__(self, segment, start_index):
-        # self.segment = segment
         if segment.size != 480:
             raise ValueError ("Expected segment to be 480 bytes, was %d." % (segment.size))
 
         self.spectrogram = audio_frontend.execute(segment)
-
-        # print (self.spectrogram)
 
         self.start_index = start_index
 
@@ -58,26 +55,12 @@ class FeatureData:
         if len (self.slices) > 49:
             self.slices.pop(0)
 
-
-        # self.tf_interp.invoke()
-
-
-
-        # print ("total slices = %d\n" % self.totalSlices)
-        # print ("addSlice(): spectrogram length = %d\n" % spectrogram.size)
-        # print (spectrogram)
-
-
     def reset(self):
 
         self.slices=[]
         self.totalSlices = 0
 
-
-
     def setInputTensorValues(self, inputTensor):
-
-        # print (inputTensor)
 
         counter = 0
 
@@ -90,15 +73,7 @@ class FeatureData:
                 inputTensor.setValue(counter, slice.spectrogram[spectrogram_index])
                 counter = counter + 1
 
-
-
-        # set 1960 values on input tensor
-        # print ("set %d values on input tensor\n" % (counter))
     def writeSpectogramValues(self, kind, file):
-
-        # print (inputTensor)
-
-        counter = 0
 
         file.write ("%s spectogram = [ " % (kind))
 
@@ -136,8 +111,6 @@ def segmentAudio(featureData, audio, trailing_10ms):
 
         end_index = min (start_index +  window_size, input_size)
 
-        # print ("segment_index=%d,start_index=%d, end_index=%d, size=%d\n" % (segment_index, start_index, end_index, end_index-start_index))
-
         slice = Slice (input_audio[start_index:end_index], start_index)
 
         featureData.addSlice(slice)
@@ -146,5 +119,3 @@ def segmentAudio(featureData, audio, trailing_10ms):
 
     # return the trailing 10ms
     return np.array(input_audio[input_size-160:input_size], dtype=np.int16)
-
-
