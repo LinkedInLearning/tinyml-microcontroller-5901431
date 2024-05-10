@@ -32,7 +32,6 @@ model_file.readinto(micro_speech_model)
 model_file.close()
 
 def input_callback (microlite_interpreter):
-
 	inputTensor = microlite_interpreter.getInputTensor(0)
 	featureData.setInputTensorValues(inputTensor)
 	
